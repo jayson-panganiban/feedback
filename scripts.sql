@@ -1,0 +1,14 @@
+-- SQLite
+CREATE TABLE feedback (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+
+SELECT * FROM feedback;
+
+DELETE FROM feedback;
+
+DROP DATABASE feedback;

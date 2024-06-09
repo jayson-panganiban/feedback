@@ -1,0 +1,93 @@
+:root {
+    --primary-bg-color: #282a36;
+    --secondary-bg-color: #44475a;
+    --text-color: #f8f8f2;
+    --orange: #ffb86c;
+    --darker-orange: #ff9a45;
+    --error-color: #ff5555;
+    --success-color: #50fa7b;
+    --border-color: #6272a4;
+}
+
+body {
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+}
+
+header, footer {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+}
+
+header h1 {
+    color: var(--orange)!important;
+}
+
+.btn-primary {
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
+
+.btn-primary:hover {
+    background-color: var(--darker-orange);
+    border-color: var(--darker-orange);
+}
+
+.form-control {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.form-control:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 0.2rem rgba(var(--orange-red), var(--orange-green), var(--orange-blue), 0.25);
+}
+
+.invalid-feedback {
+    color: var(--error-color);
+}
+
+.alert-success {
+    background-color: var(--success-color);
+    color: var(--text-color);
+    border-color: var(--success-color);
+}
+
+.container {
+    padding: 20px;
+}
+
+.needs-validation.was-validated.form-control:valid,
+.needs-validation.form-control.is-valid {
+    border-color: var(--success-color);
+}
+
+.needs-validation.was-validated.form-control:invalid,
+.needs-validation.form-control.is-invalid {
+    border-color: var(--error-color);
+}
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: var(--secondary-bg-color);
+    font-size: 24px;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.2s;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: var(--orange);
+}
