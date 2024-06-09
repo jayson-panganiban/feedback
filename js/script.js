@@ -1,27 +1,25 @@
-$(document).ready(function(){
-    $('.star-rating input').click(function(){
-        var rating = $(this).val();
-        $('.star-rating label').each(function(){
-            if ($(this).prev('input').val() <= rating) {
-                $(this).css('color', '#ffb86c'); // Orange
-            } else {
-                $(this).css('color', '#44475a'); // Default
-            }
-        });
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('feedbackForm');
 
-    // Form validation
-    (function () {
-        'use strict';
-        var forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    })();
+    form.addEventListener('submit', function(event) {
+        // Check if the rating is selected
+        const ratingChecked = document.querySelector('input[name="rating"]:checked');
+        const ratingFeedback = document.getElementById('ratingFeedback');
+
+        if (!ratingChecked) {
+            event.preventDefault();
+            event.stopPropagation();
+            ratingFeedback.style.display = 'block';
+        } else {
+            ratingFeedback.style.display = 'none';
+        }
+
+        // Check if other fields are valid
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        form.classList.add('was-validated');
+    }, false);
 });

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Include the database configuration
 include 'config.php';
 
@@ -20,7 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Execute the statement
         if ($stmt->execute()) {
-            $feedback_message = "Feedback submitted successfully!";
+            // Store success message in session
+            $_SESSION['feedback_success'] = "Feedback submitted successfully!";
+            // Redirect to the index page after successful submission
+            header('Location: index.php');
+            exit();
         } else {
             $feedback_message = "Failed to submit feedback: " . $db->lastErrorMsg();
         }
